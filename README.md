@@ -4,8 +4,9 @@
 
 | Nome | RA | 
 |--------|--------|
-| Samuel Ferreira de Lima | 1726100870 |
-| Rômulo de Brito Amorim | 926111096 |
+| Samuel Ferreira de Lima | 
+| Rômulo de Brito Amorim | 
+
 
 ---
 
