@@ -1,7 +1,7 @@
 from sqlalchemy import select
 from models.user import User
 from sqlalchemy.ext.asyncio import AsyncSession
-from schema.user_schema import UserCreate
+from schemas.users_schema import UserCreate
 
 class UserRepository:
 
@@ -34,3 +34,12 @@ class UserRepository:
         return result.scalars().first()
 
     @staticmethod
+    async def get_user_by_cpf(session: AsyncSession, cpf: str) -> User | None:
+        result = await session.execute(select(User).where(User.cpf == cpf))
+        return result.scalars().first()
+
+
+    @staticmethod
+    async def get_user_by_username(session: AsyncSession, username: str) -> User | None:
+        result = await session.execute(select(User).where(User.username == username))
+        return result.scalars().first()
