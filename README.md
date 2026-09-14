@@ -5,7 +5,8 @@
 | Nome | RA | 
 |--------|--------|
 | Samuel Ferreira de Lima | 
-| Rômulo de Brito Amorim | 
+| Rômulo de Brito Amorim |
+| Lucas Rangel Lopes |
 
 
 ---
