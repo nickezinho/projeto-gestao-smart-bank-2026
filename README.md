@@ -7,6 +7,7 @@
 | Samuel Ferreira de Lima | 
 | Rômulo de Brito Amorim |
 | Lucas Rangel Lopes |
+| Fernando de Morais Gomes|
 
 
 ---
