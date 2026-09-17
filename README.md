@@ -8,7 +8,6 @@
 | Rômulo de Brito Amorim |
 | Lucas Rangel Lopes |
 | Fernando de Morais Gomes| 
-| Pablo Faustino de Melo Silva|926112549|
 
 
 ---
