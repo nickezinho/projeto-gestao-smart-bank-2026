@@ -89,6 +89,49 @@ class UserService:
             token_type='bearer'
         )
 
+    @staticmethod
+    async def get_current_user(session: AsyncSession, token: str) -> User:
+        user_id = verify_token(token)
 
+        if not user_id:
+            raise ValueError("Invalid token")
+        print(user_id)
+        user = await UserRepository.get_user_by_id(
+            session,
+            user_id
+        )
 
+        if not user:
+            raise ValueError("User not found")
+
+        return user
+
+    @staticmethod
+    async def use_refresh_token(session: AsyncSession, refresh_token: str) -> TokenResponse:
+        user_id = verify_token(refresh_token)
+
+        if not user_id:
+            raise ValueError("Invalid token")
+
+        user = await UserRepository.get_user_by_id(
+            session,
+            user_id
+        )
+
+        if not user:
+            raise ValueError("User not found")
+
+        access_token = create_access_token(
+            user.id
+        )
+
+        refresh_token = create_refresh_token(
+            user.id
+        )
+
+        return TokenResponse(
+            refresh_token=refresh_token,
+            access_token=access_token,
+            token_type='bearer'
+        )
 

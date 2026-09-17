@@ -47,7 +47,7 @@ def create_refresh_token(user_id: int) -> str:
         user_id,
         "refresh",
         timedelta(
-            days=get_settings.refresh_token_expire_minutes
+            days=get_settings.refresh_token_expire_days
         )
     )
 
