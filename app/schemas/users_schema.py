@@ -11,7 +11,7 @@ class UserCreate(BaseModel):
 
     risk_profile: str
     investment_goal: str
-    balance: float
+
 
     model_config = ConfigDict(
         from_attributes=True
@@ -19,7 +19,7 @@ class UserCreate(BaseModel):
 
 
 class UserResponse(BaseModel):
-    id: str
+    id: int
     username: str
     name: str
     email: EmailStr
@@ -70,7 +70,7 @@ class UserLogin(BaseModel):
         from_attributes=True
     )
 
-
+#not using this one
 class RegisterResponse(BaseModel):
     message: str
     username: str
@@ -84,3 +84,12 @@ class TokenResponse(BaseModel):
     refresh_token: str
     access_token: str
     token_type: str
+
+
+class RefreshTokenInput(BaseModel):
+    refresh_token: str
+
+
+class AccessTokenInput(BaseModel):
+    access_token: str
+

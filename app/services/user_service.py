@@ -90,12 +90,14 @@ class UserService:
         )
 
     @staticmethod
-    async def get_current_user(session: AsyncSession, token: str) -> User:
-        user_id = verify_token(token)
+    async def get_current_user(session: AsyncSession, access_token: str) -> User:
+        try:
+            payload = verify_token(access_token, expected_type="access")
 
-        if not user_id:
-            raise ValueError("Invalid token")
-        print(user_id)
+            user_id = int(payload.get('sub'))
+        except Exception:
+            raise ValueError("Invalid access token")    
+        
         user = await UserRepository.get_user_by_id(
             session,
             user_id
@@ -108,11 +110,14 @@ class UserService:
 
     @staticmethod
     async def use_refresh_token(session: AsyncSession, refresh_token: str) -> TokenResponse:
-        user_id = verify_token(refresh_token)
+        try:
+            payload = verify_token(refresh_token, expected_type="refresh")
 
-        if not user_id:
-            raise ValueError("Invalid token")
+            user_id = int(payload.get("sub"))
 
+        except Exception:
+            raise ValueError("Invalid refresh token")
+        
         user = await UserRepository.get_user_by_id(
             session,
             user_id
