@@ -8,6 +8,7 @@
 | Lucas Rangel Lopes |
 | Fernando de Morais Gomes|
 | Eric da Silva Rodrigues| 
+| Pablo Faustino de Melo Silva| 
 
 
 ---
