@@ -25,8 +25,9 @@ model += x + y <= orcamento_disponivel, "Total_Investment_Limit"
 
 model.solve()
 
+print('-' * 40)
 print("Status:", pulp.LpStatus[model.status])
 print("Melhor investimento em X:", x.varValue)
 print("Melhor investimento em Y:", y.varValue)
 print("Lucro total:", pulp.value(model.objective))
-
+print('-' * 40)
